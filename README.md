@@ -18,7 +18,7 @@ python setup.py sdist bdist_wheel
 3. Test Package Installation  
 - Install the generated package locally for testing.  
 ```bash
-pip install dist/mypackage-0.1.0-py3-none-any.whl
+pip install dist/langchain_opentutorial-0.0.0-py3-none-any.whl
 ```  
 - After local testing, upload the package to PyPI using `twine`.  
 

@@ -1,0 +1,56 @@
+{
+    "windows-py3.12": {
+        "stable": {
+            "langchain": "0.3.13",
+            "langchain-community": "0.3.13",
+            "langchain-core": "0.3.27",
+            "langchain-openai": "0.2.13",
+            "langchain-text-splitters": "0.3.4",
+            "langsmith": "0.2.4"
+        },
+        "nightly": {
+            "langchain": "0.3.13",
+            "langchain-community": "0.3.13",
+            "langchain-core": "0.3.27",
+            "langchain-openai": "0.2.13",
+            "langchain-text-splitters": "0.3.4",
+            "langsmith": "0.2.4"
+        },
+        "2024-12-19": {
+            "langchain": "0.3.13",
+            "langchain-community": "0.3.13",
+            "langchain-core": "0.3.27",
+            "langchain-openai": "0.2.13",
+            "langchain-text-splitters": "0.3.4",
+            "langsmith": "0.2.4"
+        }
+    },
+    "mac-py3.9": {
+        "stable": {
+            "langchain-core": "0.0.0",
+            "langchain-openai": "0.0.0"
+        },
+        "nightly": {
+            "langchain-core": "0.0.0",
+            "langchain-openai": "0.0.0"
+        },
+        "2024-12-19": {
+            "langchain-core": "0.0.0",
+            "langchain-openai": "0.0.0"
+        }
+    },
+    "linux-py3.9": {
+        "stable": {
+            "langchain-core": "0.0.0",
+            "langchain-openai": "0.0.0"
+        },
+        "nightly": {
+            "langchain-core": "0.0.0",
+            "langchain-openai": "0.0.0"
+        },
+        "2024-12-19": {
+            "langchain-core": "0.0.0",
+            "langchain-openai": "0.0.0"
+        }
+    }
+}
