@@ -26,65 +26,36 @@ import requests
 from typing import Optional
 
 class PackageVersions:
-    """
-    Class for managing package version information from a remote JSON file.
-    """
     GITHUB_RAW_URL = (
         "https://raw.githubusercontent.com/LangChain-OpenTutorial/langchain-opentutorial-pypi/refs/heads/main/package_versions.json"
     )
 
     @classmethod
     def fetch_versions(cls) -> dict:
-        """
-        Fetches the versions JSON data from the GitHub repository.
-
-        Returns:
-            dict: Parsed JSON data containing version information.
-
-        Raises:
-            requests.RequestException: If there is an issue with the HTTP request.
-        """
         try:
             response = requests.get(cls.GITHUB_RAW_URL)
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:
-            print(f"Failed to fetch versiUpdate README to reflect new package name in installation instructionsons: {e}")
+            print(f"Failed to fetch versions: {e}")
             return {}
-
-    # Load versions from the remote JSON file
-    VERSIONS = fetch_versions()
 
     @classmethod
     def get_version(cls, package: str, env_key: str,
                     release_type_or_date: Optional[str] = None) -> Optional[str]:
-        """
-        Returns the package version for a specific date or release type.
-        If release_type_or_date is None, returns the stable version by default.
-        If it's a date format, returns the version for that date.
-
-        Args:
-            package (str): The name of the package.
-            env_key (str): The environment key (e.g., 'windows-py3.12').
-            release_type_or_date (Optional[str]): Release type (e.g., 'stable', 'nightly') or specific date (e.g., '2024-12-19').
-
-        Returns:
-            Optional[str]: The version of the package if found, otherwise None.
-        """
-        if not cls.VERSIONS:
+        versions = cls.fetch_versions()
+        if not versions:
             print("No version data available.")
             return None
 
         if release_type_or_date:
-            # Check if it's a date format or release type
-            if release_type_or_date in cls.VERSIONS.get(env_key, {}):
-                return cls.VERSIONS[env_key][release_type_or_date].get(package)
+            if release_type_or_date in versions.get(env_key, {}):
+                return versions[env_key][release_type_or_date].get(package)
             else:
-                release_versions = cls.VERSIONS.get(env_key, {}).get(release_type_or_date, {})
+                release_versions = versions.get(env_key, {}).get(release_type_or_date, {})
                 return release_versions.get(package)
         else:
-            # Return stable by default
-            release_versions = cls.VERSIONS.get(env_key, {}).get("stable", {})
+            release_versions = versions.get(env_key, {}).get("stable", {})
             return release_versions.get(package)
 
 
