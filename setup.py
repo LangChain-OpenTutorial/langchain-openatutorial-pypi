@@ -16,7 +16,7 @@ setup(
     name="langchain_opentutorial",  # 패키지의 이름
     version=get_version(),  # 버전을 __init__.py에서 가져옴
     packages=find_packages(),  # 패키지 내의 모든 파이썬 패키지를 자동으로 찾아서 포함
-    install_requires=[],  # 패키지의 의존성 목록
+    install_requires=['requests'],  # 패키지의 의존성 목록
     description="LangChain-OpenTutorial(https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial) Packages",  # 패키지에 대한 간단한 설명
     author="LangChain-OpenTutorial",  # 패키지 작성자 이름
     author_email="langchain.opentutorial@gmail.com",  # 패키지 작성자 이메일
